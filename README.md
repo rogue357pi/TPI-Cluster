@@ -1,4 +1,4 @@
-# TPI-Cluster
+# TuringPI-Cluster
 Discussions and actions taken to create a TuringPi 2 Cluster
 
 ## Purpose
