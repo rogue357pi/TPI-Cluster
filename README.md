@@ -13,9 +13,15 @@ Since this is 2024 and the best TuringPI option is version 2 of the [TuringPI](h
 
 Case will be one of the following choices:
 *  [Thermaltake Tower 200 Mini-ITX](https://www.amazon.com/dp/B0CQ32LMQF/?coliid=I3ENRBT38RE58T&colid=BTFFRD46RDAH&psc=1&ref_=list_c_wl_lv_ov_lig_dp_it)
-!(/img/ThermaltakeTower200.jpg "Title")
+
+ ![$130](img/ThermaltakeTower200.jpg)
+
+ I really like this tower as it provides clear view of the motherboard from the top not from the side of the case.  I particularly live the bumble bee color scheme.  What better way to show off a home lab.  This case is more expensive and also takes up a lot of table/floor space.  Breathe ability seems excellent and since I wont be using a massive GPU there is all kinds of space.
+
 *  [NZXT H210i - CA-H210i-BR](https://www.amazon.com/gp/product/B07T7L74D5/ref=ox_sc_saved_title_6?smid=&psc=1)
-![alt text](/path/img.jpg "Title")
+![$100](img/NZXT-H210i.jpg "Title")
+
+This case provide good visibilty and air flow in a decent looking case.  The case provides for standard atx case size and volume.  There is really nothing specticular about this case othger then the price and flexibility.
 
 ----
 
@@ -31,7 +37,7 @@ Case will be one of the following choices:
 
 ----
 
-## Assyembling the case
+## Assymbling the case
 
 
 
