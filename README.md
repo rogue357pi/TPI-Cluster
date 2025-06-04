@@ -1,4 +1,4 @@
-# TuringPI-Cluster
+we# TuringPI-Cluster
 Discussions and actions taken to create a TuringPi 2 Cluster
 
 ## Purpose
@@ -61,9 +61,9 @@ This case provide good visibilty and air flow in a decent looking case.  The cas
   * postgresql
   * others?
     While db choices can be multiple, for now using the Naria DB (on my NAS) that sits in another room.
-* Grafana for reporting  Got this install and accessing the MaruaDB just frin, #(Instakked abd Running)#
+* Grafana for reporting  Got this install and accessing the MaruaDB just frin, ** (Instakked abd Running) **
 * Custom application for data collection
-  * NQTT die IoT transaction gatering , #Instakked abd running,# 
+  * NQTT die IoT transaction gatering , ** (Installed and running) ** 
 
 ----
 
