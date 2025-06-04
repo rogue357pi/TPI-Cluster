@@ -56,10 +56,10 @@ This case provide good visibilty and air flow in a decent looking case.  The cas
 ## What applications are to run on the cluster
 
 * Some Database
-  * MySql
-  * NoSql
-  * postgresql
-  * others?
+  * -[x] MySql
+  * -[ ] NoSql
+  * -[ ] postgresql
+  * -[ ] others?
     While db choices can be multiple, for now using the Naria DB (on my NAS) that sits in another room.
 * Grafana for reporting  Got this installed and accessing the MaruaDB just fine. *(Installed abd Running)*
 * Custom application for data collection
