@@ -60,8 +60,10 @@ This case provide good visibilty and air flow in a decent looking case.  The cas
   * NoSql
   * postgresql
   * others?
-* Grafana for reporting
+    While db choices can be multiple, for now using the Naria DB (on my NAS) that sits in another room.
+* Grafana for reporting  Got this install and accessing the MaruaDB just frin, #(Instakked abd Running)#
 * Custom application for data collection
+  * NQTT die IoT transaction gatering , #Instakked abd running,# 
 
 ----
 
