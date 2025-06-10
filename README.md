@@ -47,24 +47,73 @@ This case provide good visibilty and air flow in a decent looking case.  The cas
 ## Choosing the initial software K0s v k3s v k8s
 
 * **k0s**
-* **k3s**
-* **k8s**
+might as well use vm's
 
+* **k3s**
+Problem is finding information, while well documented on K3s website.  There are many instances where you only get a hint (or multiples) about an issue.  So was helofuk some just causes more confusion.
+k3s offers a simple mostly single stop solution to get the full kubernetes experience.  Creating app/deployments should be a whole new learing experience.
+
+https://k3s.io/
+
+* **k8s**
+Very elaborate and if you do this as your job, you probably wont be intimidated by this.  I found it more difficult then I wanted to get into.  Standing up databases, decicated control plane, etc... and I could have done it i am sure.
+
+https://kubernetes.io/
 
 ----
 
 ## What applications are to run on the cluster
 
 * Some Database
+~~~
   * -[x] MySql
   * -[ ] NoSql
   * -[ ] postgresql
-  * -[ ] others?
-    While db choices can be multiple, for now using the Naria DB (on my NAS) that sits in another room.
-* Grafana for reporting  Got this installed and accessing the MaruaDB just fine. *(Installed abd Running)*
+  * -[ ] inFluxDB?
+~~~
+  While db choices can be multiple, for now using the MariaDB (on my NAS) that sits in another room.
+    *(This is satisfied at the momment)*
+* Grafana for reporting and visualizations. 
+    * Had severe difficuties regarding presistence of data that led me down many rabbit holes.
+    * Got this installed and accessing the MariaDB just fine. 
+    * *(Installed and Running)*
 * Custom application for data collection
-  * NQTT die IoT transaction gatering , *(Installed and running)* 
+* MQTT for IoT transaction gatering
+    * severely difficult times trying to get access through the cluster up finding app wasnt binding to eth0.
+    * *(Installed and Running)* 
 
+----
+
+## Installation / Configuration Notes 
+
+
+### K3s
+
+
+
+### Permanent Data storage
+
+
+### Grafana
+
+
+
+### Mosquitto
+
+
+
+
+----
+
+## TuringPi NODES
+node1: Rasberry PI CM4 4gb wifi
+![node1](img/tpinode1.png)
+node2: TuringPi RK1 32gb/16gb
+![node2](img/tpinode2.png)
+node3: *(reserved)*
+
+node4: Rasberry PI CM4 4gb wifi
+![node4](img/tpinode4.png)
 ----
 
 ## References
