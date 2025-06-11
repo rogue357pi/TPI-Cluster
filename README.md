@@ -104,6 +104,75 @@ Taints
 ### Grafana
 
 ~~~
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tpi-grafana
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana
+  namespace: tpi-grafana
+  labels:
+    app: grafana
+spec:
+  ports:
+  - port: 3000
+    targetPort: 3000
+    protocol: TCP
+    name: http
+  selector:
+    app: grafana
+  type: LoadBalancer # Or ClusterIP for internal access
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana
+  namespace: tpi-grafana
+  labels:
+    app: grafana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana
+  template:
+    metadata:
+      labels:
+        app: grafana
+    spec:
+      containers:
+      - name: grafana
+        image: grafana/grafana:latest # Replace with your desired version
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 3000
+        volumeMounts:
+        - name: grafana-data
+          mountPath: /var/lib/grafana
+      volumes:
+      - name: grafana-data
+        persistentVolumeClaim:
+          claimName: grafana-data-claim
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: grafana-data-claim
+  namespace: tpi-grafana
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: nfs
+  resources:
+    requests:
+      storage: 100Mi # Adjust storage size as needed
 ~~~
 
 ~~~
@@ -1146,6 +1215,23 @@ kubectl apply -k mosquitto
 ~~~
 
 
+### External NFS Mount
+
+~~~
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: nfs
+  namespace: default
+spec:
+  chart: nfs-subdir-external-provisioner
+  repo: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
+  targetNamespace: default
+  set:
+    nfs.server: 192.168.1.45
+    nfs.path: /volume1/tpishare
+    storageClass.name: nfs
+~~~
 
 ~~~
 kubectl delete deployment mosquitto --naamespace tpi-mosquitto 
@@ -1161,6 +1247,8 @@ kubectl delete pod svclb-mosquitto-lb-40b0f18c-ztpx6 --namespace kube-system  --
 kubectl taint nodes tpinode4 node.kubernetes.io/unreachable:NoSchedule-
 kubectl taint nodes tpinode4 node.kubernetes.io/unreachable:NoExecute-
 ~~~
+
+
 
 ----
 
