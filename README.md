@@ -115,11 +115,12 @@ kubectl apply -f grafana.yaml
 mkdir mosquito
 ~~~
 
+Copy the following files into this directory and run the apply command.
 
-![kustomizations.yaml](k3s/mosquitto/kustomizations.yaml)
-mosquitto-config.yaml
-mosquitto-password.yaml
-mosquitto.yaml
+[kustomizations.yaml](k3s/mosquitto/kustomizations.yaml)
+[mosquitto-config.yaml](k3s/mosquitto/mosquitto-config.yaml)
+[mosquitto-password.yaml](k3s/mosquitto/mosquitto-password.yaml)
+[mosquitto.yaml](k3s/mosquitto/mosquitto.yaml)
 
 ~~~
 kubectl apply -k mosquitto
