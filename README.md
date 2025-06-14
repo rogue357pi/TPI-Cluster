@@ -22,10 +22,9 @@ Case will be one of the following choices:
 
  ![](img/NZXT-H210-50i.jpg)
 
-This case provide good visibilty and air flow in a decent looking case.  The case provides for standard atx case size and volume.  There is really nothing specticular about this case othger then the price and flexibility.
+This case provide good visibilty and air flow in a decent looking case.  The case provides for standard atx case size and volume.  There is really nothing specticular about this case othger then the price and flexibility. It really should be removed from running.
 
-----
-
+--------
 ## Testing
 
 * ### Testing Main board
@@ -40,7 +39,7 @@ This case provide good visibilty and air flow in a decent looking case.  The cas
 
 ## Assymbling the case
 
-
+Other then installing the power supply which fit perfect.  Putting this together mostly consisted of removeing things that wouldnt be needeed and install a couple fans.  installing the sata cables were idiot proof. Front panel control (as allways) take more then 1 chance to get perfect.
 
 ----
 
@@ -98,6 +97,11 @@ sudo apt upgrade
 
 Taints
 
+
+### Kubernetes Simple overview
+
+![](img/kubernetes-start.png)
+
 ### Permanent Data storage
 
 
@@ -117,6 +121,7 @@ mkdir mosquito
 
 Copy the following files into this directory and run the apply command.
 
+
 [kustomizations.yaml](k3s/mosquitto/kustomizations.yaml)
 
 [mosquitto-config.yaml](k3s/mosquitto/mosquitto-config.yaml)
@@ -124,6 +129,7 @@ Copy the following files into this directory and run the apply command.
 [mosquitto-password.yaml](k3s/mosquitto/mosquitto-password.yaml)
 
 [mosquitto.yaml](k3s/mosquitto/mosquitto.yaml)
+
 
 ~~~
 kubectl apply -k mosquitto
@@ -138,16 +144,20 @@ kubectl apply -k mosquitto
 kubectl apply -f nfs-mount.yaml
 ~~~
 
+----
+#### Various commands found useful
+
 ~~~
-kubectl delete deployment mosquitto --naamespace tpi-mosquitto 
+Killing a POD notes
+
 kubectl delete deployment mosquitto --namespace tpi-mosquitto 
 kubectl delete pod mosquitto-85d4cf77d9-s4nc9 --namespace tpi-mosquitto 
 kubectl delete pod mosquitto-85d4cf77d9-s4nc9 --namespace tpi-mosquitto  --force
 kubectl delete service mosquitto-lb --namespace tpi-mosquitto  --force
 kubectl delete pod svclb-mosquitto-lb-40b0f18c-vnp8v --namespace tpi-mosquitto  --force
-kubectl delete pod svclb-mosquitto-lb-40b0f18c-vnp8v --namespace kube-system  --force
 kubectl delete pod svclb-mosquitto-lb-40b0f18c-ztpx6 --namespace kube-system  --force
 
+Removing taints example
 
 kubectl taint nodes tpinode4 node.kubernetes.io/unreachable:NoSchedule-
 kubectl taint nodes tpinode4 node.kubernetes.io/unreachable:NoExecute-
