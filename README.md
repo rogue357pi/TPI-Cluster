@@ -49,7 +49,7 @@ Other then installing the power supply which fit perfect.  Putting this together
 might as well use vm's
 
 * **k3s**
-Problem is finding information, while well documented on K3s website.  There are many instances where you only get a hint (or multiples) about an issue.  So was helofuk some just causes more confusion.
+Problem is finding information, while well documented on K3s website.  There are many instances where you only get a hint (or multiples) about an issue.  Some were helpful, some just causes more confusion.
 k3s offers a simple mostly single stop solution to get the full kubernetes experience.  Creating app/deployments should be a whole new learing experience.
 
 https://k3s.io/
@@ -163,11 +163,41 @@ kubectl taint nodes tpinode4 node.kubernetes.io/unreachable:NoSchedule-
 kubectl taint nodes tpinode4 node.kubernetes.io/unreachable:NoExecute-
 ~~~
 
+### Install Lens on mac
 
+Lens has proven to be indispensible, installing this has been a god send for newbies.  You have complete visibility to
+every aspect of the cluster without all the hassle of typing.  Dont get me wrong you still have to do plenty of command 
+line work.
+
+https://docs.k8slens.dev/
+
+
+![](img/lens.png)
+
+
+### Install Helm
+~~~
+$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+$ chmod 700 get_helm.sh
+$ ./get_helm.sh
+~~~
+
+https://github.com/helm/helm/releases
+
+### Install Prometheus
+
+![](img/Prometheus-install.png)
+
+![](img/Prometheus-dashboard.png)
+
+
+After install prometheus you can import a Grafana Dashboard tailored for K3S.  This will also test the integrity of your K3S and Prometheus.
+
+https://grafana.com/grafana/dashboards/19972-k3s-monitoring/
 
 ----
 
-## TuringPi NODES
+## TuringPI Nodes
 node1: Rasberry PI CM4 4gb wifi
 ![node1](img/tpinode1.png)
 node2: TuringPi RK1 32gb/16gb

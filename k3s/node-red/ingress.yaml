@@ -1,0 +1,26 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: node-red-ingress
+  namespace: node-red
+  annotations:
+    traefik.ingress.kubernetes.io/router.middlewares: default-redirect@kubernetescrd,node-red-auth@kubernetescrd
+    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+    cert-manager.io/cluster-issuer: letsencrypt-aws
+spec:
+  rules:
+    - host: node-red.turingpi.domain
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: node-red-service
+                port:
+                  number: 1880
+  tls:
+    - secretName: ssl-cert
+      hosts:
+        - node-red.turingpi.domain

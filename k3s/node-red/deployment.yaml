@@ -1,0 +1,35 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: node-red
+  name: node-red
+  namespace: node-red
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-red
+  template:
+    metadata:
+      labels:
+        app: node-red
+    spec:
+      terminationGracePeriodSeconds: 40
+      containers:
+        - name: node-red
+          image: nodered/node-red:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 1880
+              protocol: TCP
+          volumeMounts:
+            - name: node-red-volume
+              mountPath: /data
+              readOnly: false
+      volumes:
+        - name: node-red-volume
+          persistentVolumeClaim:
+            claimName: node-red-pvc
+
